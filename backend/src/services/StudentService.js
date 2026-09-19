@@ -8,17 +8,17 @@ export class StudentService {
   }
 
   async register(input) {
-    const student = this.#normalizeAndValidate(input);
-    const exists = await this.studentRepository.findByEmail(student.email);
+  const student = this.#normalizeAndValidate(input);
+  const exists = await this.studentRepository.findByEmail(student.email);
 
-    if (exists) {
-      const error = new Error('Ya existe un estudiante con ese correo.');
-      error.statusCode = 409;
-      throw error;
-    }
-
-    return this.studentRepository.create(student);
+  if (exists) {
+    const error = new Error('Ya existe un estudiante con ese correo.');
+    error.statusCode = 409;
+    throw error;
   }
+
+  return this.studentRepository.create(student);
+}
 
   #normalizeAndValidate({ names, email, program } = {}) {
     const student = {
