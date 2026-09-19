@@ -21,12 +21,11 @@ export function StudentForm({ onCreate }) {
   };
 
   return <form onSubmit={submit}>
-    <h2>Registrar estudiante</h2>
-    <label>Nombres<input required value={form.names} onChange={(e) => setForm({ ...form, names: e.target.value })} /></label>
-    <label>Correo<input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} /></label>
-    <label>Programa<input required value={form.program} onChange={(e) => setForm({ ...form, program: e.target.value })} /></label>
-    {error && <p role="alert">{error}</p>}
-    <button disabled={saving}>{saving ? 'Guardando...' : 'Guardar'}</button>
-  </form>;
+  <label>Nombres<input required value={form.names} /></label>
+  <label>Correo<input required type="email" value={form.email} /></label>
+  <label>Programa<input required value={form.program} /></label>
+  <button disabled={saving}>Guardar</button>
+  </form>
+
 }
 
