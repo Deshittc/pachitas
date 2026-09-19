@@ -17,4 +17,3 @@ export default function App() {
     <StudentForm onCreate={register} /><StudentList students={students} loading={loading} />
   </main>;
 }
-
